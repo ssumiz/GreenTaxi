@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".serviceCenter"
+    android:background="#FFFF">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1750"
+        app:scale_base_width="1080"
+        >
+        <ImageButton
+            android:id="@+id/sC_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFF"
+            app:srcCompat="@drawable/back"
+            app:scale_height="250"
+            app:scale_left="50"
+            app:scale_width="150"
+            android:onClick="onClick"
+            tools:ignore="MissingPrefix" />
+        <TextView
+            android:layout_weight="1"
+            android:textStyle="normal"
+            android:textColor="#000"
+            android:layout_alignParentTop="true"
+            android:id="@+id/sC_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="고객 센터"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:layout_margin="25dp"
+            app:scale_height="250"
+            app:scale_textsize="100"
+            app:scale_width="1080"
+            tools:ignore="MissingPrefix"
+            />
+
+        <ImageView
+
+            android:background="#FFFF"
+            android:id="@+id/sC_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="top"
+            android:layout_marginTop="300dp"
+            android:layout_weight="1"
+            app:scale_height="700"
+            app:scale_width="1080"
+            app:scale_top="300"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="MissingPrefix"
+            />
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/notice"
+            app:scale_height="300"
+            app:scale_width="300"
+            app:scale_top="1100"
+            app:scale_left="200"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/sC_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="100"
+            app:scale_width="300"
+            app:scale_top="1400"
+            app:scale_left="200"
+            android:text="공지사항"
+            app:scale_textsize="60"
+            tools:ignore="MissingPrefix"
+            android:background="@drawable/nomal_edge"
+            android:textColor="#80000000"
+            android:textStyle="normal"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/qna"
+            app:scale_height="300"
+            app:scale_width="300"
+            app:scale_top="1100"
+            app:scale_left="600"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/sC_qna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="100"
+            app:scale_width="300"
+            app:scale_top="1400"
+            app:scale_left="600"
+            android:text="문 의"
+            app:scale_textsize="60"
+            tools:ignore="MissingPrefix"
+
+            android:textColor="#80000000"
+            android:textStyle="normal"
+            android:background="@drawable/nomal_edge"/>
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+</RelativeLayout>

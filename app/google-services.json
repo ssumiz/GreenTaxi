@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "15922332135",
+    "firebase_url": "https://capstone-1558401761842.firebaseio.com",
+    "project_id": "capstone-1558401761842",
+    "storage_bucket": "capstone-1558401761842.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15922332135:android:846c1fc5789201a2",
+        "android_client_info": {
+          "package_name": "com.example.greentaxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15922332135-5fjh6ei4fuhnq3gavfacd07qm665hl6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI5AjdlkFYgtZmdbpld6ZYYKrsK7l65nQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15922332135-5fjh6ei4fuhnq3gavfacd07qm665hl6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

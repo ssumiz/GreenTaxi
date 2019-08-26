@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".set"
+    android:background="#FFFF"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1920"
+        app:scale_base_width="1080">
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="[설 정]"
+            android:textColor="#000"
+            android:textSize="40dp"
+            android:textStyle="normal"
+            app:scale_height="250"
+            app:scale_textsize="100"
+            app:scale_width="1080"
+            tools:ignore="MissingPrefix" />
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="230"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //첫번째줄
+
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="380"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //두번째줄
+
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="530"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        <!--
+        //세번째줄
+
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="680"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //네번째줄
+-->
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="830"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //다섯번째줄
+
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="980"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //여섯번째줄
+
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="680"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //일곱째줄
+
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_top="1280"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+        //여덟째줄
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:onClick="onClick"
+            android:text="알림"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="305"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:onClick="onClick"
+            android:text="소리"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="455"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+        <!--
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:gravity=""
+                    android:onClick="onClick"
+                    android:text="글자크기"
+                    android:textColor="#000000"
+                    app:scale_height="150"
+                    app:scale_left="105"
+                    app:scale_textsize="70"
+                    app:scale_top="600"
+                    app:scale_width="850"
+
+                    tools:ignore="MissingPrefix" />
+        -->
+        <TextView
+            android:id="@+id/sound_but1"
+            android:layout_width="74dp"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:text="소리"
+            android:textColor="#000"
+            app:scale_height="150"
+            app:scale_left="840"
+            app:scale_textsize="50"
+            app:scale_top="485"
+            app:scale_width="500"
+
+            tools:ignore="MissingPrefix" />
+        <!--
+                <TextView
+                    android:id="@+id/font_but1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:gravity=""
+                    android:onClick="onClick"
+                    android:text="보통"
+                    android:textColor="#000"
+                    app:scale_height="150"
+                    app:scale_left="840"
+                    app:scale_textsize="50"
+                    app:scale_top="610"
+                    app:scale_width="850"
+
+                    tools:ignore="MissingPrefix" />
+            -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:onClick="onClick"
+            android:text="녹음"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="605"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:onClick="onClick"
+            android:text="버전"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="755"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:onClick="onClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:text="1.1ver"
+            android:textColor="#000"
+            app:scale_height="150"
+            app:scale_left="830"
+            app:scale_textsize="50"
+            app:scale_top="785"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:text="신고"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="915"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/sos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="130"
+            app:scale_left="770"
+            app:scale_top="915"
+            app:scale_width="300"
+            app:srcCompat="@drawable/down"
+
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:text="마이페이지"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="1065"
+            app:scale_width="850"
+
+            tools:ignore="MissingPrefix" />
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="130"
+            app:scale_left="770"
+            app:scale_top="1065"
+            app:scale_width="300"
+            app:srcCompat="@drawable/down"
+
+            tools:ignore="MissingPrefix" />
+        <!--
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:gravity=""
+                    android:onClick="onClick"
+                    android:text="파트너"
+                    android:textColor="#000000"
+                    app:scale_height="150"
+                    app:scale_left="105"
+                    app:scale_textsize="70"
+                    app:scale_top="1200"
+                    app:scale_width="850"
+
+                    tools:ignore="MissingPrefix" />
+
+                <ImageView
+                    android:onClick="onClick"
+                    android:id="@+id/Ahegao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:scale_height="130"
+                    app:scale_left="770"
+                    app:scale_top="1215"
+                    app:scale_width="300"
+                    app:srcCompat="@drawable/down"
+
+                    tools:ignore="MissingPrefix" />
+        -->
+
+
+        <ImageButton
+            android:id="@+id/route_search_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            app:scale_height="130"
+            app:scale_left="50"
+            app:scale_top="60"
+            app:scale_width="130"
+            app:srcCompat="@drawable/back"
+            tools:ignore="MissingPrefix"
+            android:background="#FFFF"/>
+
+        <ImageView
+
+            android:id="@+id/main_logo"
+            android:layout_width="match_parent"
+            android:layout_height="463dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="900dp"
+            android:layout_weight="1"
+            android:background="#FFFF"
+            app:scale_height="400"
+            app:scale_width="1080"
+            android:layout_marginBottom="70dp"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="MissingPrefix" />
+
+        <Switch
+
+            android:track="@drawable/switch_track_selector"
+            android:thumb="@drawable/switch_thumb"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="115dp"
+            android:checked="true"
+            android:switchMinWidth="56dp"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:textSize="40dp"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="300"
+            app:scale_width="850"
+            tools:ignore="MissingPrefix" />
+
+        <Switch
+            android:id="@+id/switch3"
+            android:track="@drawable/switch_track_selector"
+            android:thumb="@drawable/switch_thumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="305dp"
+            android:layout_marginTop="290dp"
+            android:checked="true"
+            android:switchMinWidth="56dp"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:textSize="40dp"
+            app:scale_height="150"
+            app:scale_left="105"
+            app:scale_textsize="70"
+            app:scale_top="600"
+            app:scale_width="850"
+            tools:ignore="MissingPrefix" />
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+</RelativeLayout>

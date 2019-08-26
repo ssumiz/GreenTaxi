@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".route_search"
+    android:background="#FFFF"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="750"
+        app:scale_base_width="1080"
+        >
+
+
+        <TextView
+            android:layout_weight="1"
+            android:textStyle="normal"
+            android:textColor="#000"
+            android:layout_alignParentTop="true"
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="경로 검색"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:layout_margin="25dp"
+            app:scale_height="250"
+            app:scale_textsize="100"
+            app:scale_width="1080"
+            tools:ignore="MissingPrefix"
+            />
+
+        <ImageButton
+            android:background="#FFFF"
+            android:id="@+id/route_search_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            app:srcCompat="@drawable/back"
+            app:scale_height="130"
+            app:scale_width="130"
+            app:scale_top = "60"
+            app:scale_left="50"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/route_search_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textShortMessage"
+            android:background="@drawable/nomal_edge"
+            android:hint="출발지 검색"
+            android:gravity="center"
+            app:scale_textsize="35"
+            app:scale_top="250"
+            app:scale_height="150"
+            app:scale_width="700"
+            app:scale_left = "200"
+
+            tools:ignore="MissingPrefix" />
+
+        <ImageButton
+            android:onClick="onClick"
+            android:background="#0000"
+            android:id="@+id/route_search_startSearch"
+            android:src="@drawable/map_icon_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_top="250"
+            app:scale_height="150"
+            app:scale_width="175"
+            app:scale_left = "30"
+            tools:ignore="MissingPrefix"
+            android:scaleType="centerInside"
+            />
+
+
+        <EditText
+            android:id="@+id/route_search_destinate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textShortMessage"
+            android:background="@drawable/nomal_edge"
+            android:gravity="center"
+            android:hint="도착지 검색"
+            app:scale_textsize="35"
+            app:scale_top="410"
+            app:scale_height="150"
+            app:scale_width="700"
+            app:scale_left = "200"
+
+            tools:ignore="MissingPrefix" />
+
+        <ImageButton
+            android:onClick="onClick"
+            android:background="#0000"
+            android:id="@+id/route_search_destSearch"
+            android:src="@drawable/map_icon_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_top="410"
+            app:scale_height="150"
+            app:scale_width="175"
+            app:scale_left = "30"
+            tools:ignore="MissingPrefix"
+            android:scaleType="centerInside"/>
+
+        <ImageView
+            android:id="@+id/route_search_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            app:scale_height="150"
+            app:scale_left="850"
+            app:scale_top="330"
+            app:scale_width="300"
+            app:srcCompat="@drawable/check"
+
+            tools:ignore="MissingPrefix" />
+
+
+        <TextView
+            android:onClick="onClick"
+            android:id="@+id/route_search_recentSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:background="@drawable/nomal_edge"
+            android:text="최근 검색"
+            android:textColor="#000000"
+            android:gravity="center"
+            app:scale_textsize="70"
+            app:scale_top="600"
+            app:scale_height="150"
+            app:scale_width="540"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:onClick="onClick"
+            android:id="@+id/route_search_favorites"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:background="@drawable/nomal_edge"
+            android:text="즐겨 찾기"
+            android:textColor="#000000"
+            android:gravity="center"
+            app:scale_textsize="70"
+            app:scale_top="600"
+            app:scale_height="150"
+            app:scale_width="540"
+            app:scale_left = "540"
+
+            tools:ignore="MissingPrefix" />
+
+
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <ListView
+        android:layout_below="@id/sl1"
+        android:id="@+id/route_search_recentSearch_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="#cc53dc00"
+        android:dividerHeight="2dp"
+
+        >
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/route_search_favorites_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sl1"
+        android:divider="#cc53dc00"
+        android:dividerHeight="2dp"/>
+
+</RelativeLayout>

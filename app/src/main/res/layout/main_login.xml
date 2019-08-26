@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    tools:context=".main_logined"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1750"
+        app:scale_base_width="1080"
+        >
+
+
+        <ImageView
+
+            android:background="#FFFF"
+            android:id="@+id/main_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="top"
+            android:layout_marginTop="100dp"
+            android:layout_weight="1"
+            app:scale_height="700"
+            app:scale_width="1080"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="MissingPrefix"
+            />
+
+        <ImageButton
+            android:id="@+id/main_settingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick= "onClick"
+            app:srcCompat="@drawable/settings"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            app:scale_textsize="50"
+            app:scale_height="200"
+            app:scale_width="150"
+            app:scale_left = "900"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:onClick="onClick"
+            android:id="@+id/main_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+           android:background="@drawable/nomal_edge"
+            android:hint="  장소, 버스, 주소 검색"
+            android:gravity="center_vertical"
+            app:scale_textsize="70"
+            app:scale_top="600"
+            app:scale_height="150"
+            app:scale_width="900"
+            app:scale_left = "100"
+
+            tools:ignore="MissingPrefix" />
+
+
+        <ImageButton
+            android:id="@+id/main_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림"
+            android:background="#FFFF"
+            app:srcCompat="@drawable/arlam"
+            android:scaleType="fitCenter"
+            app:scale_height="300"
+            app:scale_width="300"
+            app:scale_left="150"
+            app:scale_textsize="70"
+            app:scale_top="900"
+            tools:ignore="MissingPrefix" />
+
+        <ImageButton
+            android:id="@+id/main_partner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFF"
+            app:srcCompat="@drawable/teamwork"
+            android:scaleType="fitCenter"
+            app:scale_height="300"
+            app:scale_width="300"
+            app:scale_left="650"
+            app:scale_textsize="70"
+            app:scale_top="900"
+            android:text="파트너"
+            android:onClick="onClick"
+            tools:ignore="MissingPrefix" />
+
+        <ImageButton
+            android:id="@+id/main_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFF"
+            app:srcCompat="@drawable/record"
+            android:scaleType="fitCenter"
+            app:scale_height="300"
+            app:scale_width="300"
+            app:scale_left="150"
+            app:scale_textsize="70"
+            app:scale_top="1300"
+            android:text="녹음"
+            tools:ignore="MissingPrefix"
+            android:onClick="onClick"/>
+
+        <ImageButton
+            android:id="@+id/main_serviceCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFF"
+            app:srcCompat="@drawable/servicenter"
+            android:scaleType="fitCenter"
+            app:scale_height="300"
+            app:scale_width="300"
+            app:scale_left="650"
+            app:scale_textsize="70"
+            app:scale_top="1300"
+            android:text="고객센터"
+            android:onClick="onClick"
+            tools:ignore="MissingPrefix" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GreenTaxi</string>
+    <string name="title_activity_map">Map</string>
+    <string name="title_activity_map2">map2</string>
+    <string name="title_activity_route">route</string>
+
+</resources>

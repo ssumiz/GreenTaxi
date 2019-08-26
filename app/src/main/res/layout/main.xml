@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFF"
+    tools:context=".main">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1920"
+        app:scale_base_width="1080">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/logo"
+        app:scale_height="500"
+        app:scale_textsize="125"
+        app:scale_width="1080"
+        tools:ignore="MissingPrefix" />
+
+
+        <EditText
+
+            android:id="@+id/inputId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="아이디"
+            android:inputType="textEmailAddress"
+            app:scale_height="200"
+            app:scale_textsize="60"
+            app:scale_width="700"
+            app:scale_top="650"
+            app:scale_left="200"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+
+            android:id="@+id/inputPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            app:scale_height="200"
+            app:scale_textsize="60"
+            app:scale_width="700"
+            app:scale_top="800"
+            app:scale_left="200"
+            tools:ignore="MissingPrefix"
+            />
+
+
+
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="로그인"
+            app:scale_height="150"
+            app:scale_textsize="50"
+            app:scale_width="350"
+            app:scale_top="1050"
+            app:scale_left="150"
+            tools:ignore="MissingPrefix"
+            />
+
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="회원가입"
+            app:scale_height="150"
+            app:scale_textsize="50"
+            app:scale_width="350"
+            app:scale_top="1050"
+            app:scale_left="600"
+            tools:ignore="MissingPrefix"
+            />
+
+
+
+
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/com_kakao_login"
+        android:text = "카카오톡으로 로그인하기"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:scale_height="200"
+        app:scale_textsize="60"
+        app:scale_width="800"
+        app:scale_top="1225"
+        app:scale_left="150"
+        tools:ignore="MissingPrefix"
+        />
+
+        <Button
+            android:id="@+id/findId"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:text="아이디찾기"
+            app:scale_height="150"
+            app:scale_textsize="45"
+            app:scale_width="400"
+            app:scale_top="1650"
+            app:scale_left="150"
+            tools:ignore="MissingPrefix"/>
+
+        <Button
+            android:id="@+id/findPassword"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:text="비밀번호찾기"
+            app:scale_height="150"
+            app:scale_textsize="45"
+            app:scale_width="400"
+            app:scale_top="1650"
+            app:scale_left="575"
+            tools:ignore="MissingPrefix"/>
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</RelativeLayout>

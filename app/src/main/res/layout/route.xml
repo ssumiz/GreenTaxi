@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".route"
+    android:id="@+id/route_layout">
+
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/sl1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="1920"
+            app:scale_base_width="1080"
+
+            >
+            <LinearLayout
+                android:id = "@+id/tmap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:scale_height="1920"
+                app:scale_width="1080"
+                tools:ignore="MissingPrefix"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+
+            <TextView
+                android:background="@drawable/nomal_edge"
+                android:id="@+id/route_taxifare"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="택시요금 테스트"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textStyle = "bold"
+                app:scale_height="200"
+                app:scale_left="0"
+                app:scale_textsize="65"
+                app:scale_top="50"
+                app:scale_width="1080"
+                tools:ignore="MissingPrefix"/>
+
+            <ImageButton
+                android:background="#FFFF"
+                android:id="@+id/route_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                app:srcCompat="@drawable/back"
+                app:scale_height="130"
+                app:scale_width="130"
+                app:scale_top = "90"
+                app:scale_left="70"
+                tools:ignore="MissingPrefix" />
+
+            <Button
+                android:id="@+id/route_ride"
+                android:onClick="onClick"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/nomal_edge"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="승차 하기 "
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="bold"
+                app:scale_height="175"
+                app:scale_left="125"
+                app:scale_textsize="65"
+                app:scale_top="1500"
+                app:scale_width="825"
+                tools:ignore="MissingPrefix" />
+
+
+            <Button
+                android:id="@+id/route_sos"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="#00FF0000"
+                android:text=" 경찰 신고"
+                android:textStyle="bold"
+                app:scale_height="150"
+                app:scale_left="125"
+                app:scale_textsize="50"
+                app:scale_top="1700"
+                app:scale_width="400"
+                tools:ignore="MissingPrefix" />
+
+            <Button
+                android:id="@+id/route_sendPartner"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="#00FF0000"
+                android:text="파트너에게 전송"
+                android:textStyle="bold"
+                app:scale_height="150"
+                app:scale_left="575"
+                app:scale_textsize="50"
+                app:scale_top="1700"
+                app:scale_width="400"
+                tools:ignore="MissingPrefix"
+
+                />
+
+
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    tools:context=".mypage">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1920"
+        app:scale_base_width="1080">
+
+        <TextView
+            android:layout_weight="1"
+            android:textStyle="normal"
+            android:textColor="#000"
+            android:layout_alignParentTop="true"
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="신고"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:layout_margin="25dp"
+            app:scale_height="250"
+            app:scale_textsize="125"
+            app:scale_width="1080"
+            tools:ignore="MissingPrefix"
+            />
+
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="신고메세지"
+            android:layout_marginLeft="20dp"
+            app:scale_height="150"
+            app:scale_textsize="75"
+            app:scale_width="1080"
+            app:scale_top="400"
+            app:scale_left="50"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/editId"
+            android:inputType="textMultiLine"
+            android:lines="9"
+            android:minLines="1"
+            android:maxLines="9"
+            android:layout_width="match_parent"
+            android:layout_height="221dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/nomal_edge"
+            android:ems="10"
+            android:hint="신고메세지"
+            android:padding="10dp"
+            android:textSize="25dp"
+            app:scale_height="900"
+            app:scale_left="50"
+            app:scale_textsize="75"
+            app:scale_top="550"
+            app:scale_width="950"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:layout_marginLeft="500dp"
+            android:id="@+id/signUp_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="저장"
+            android:textSize="25dp"
+            app:scale_height="150"
+            app:scale_left="300"
+            app:scale_textsize="75"
+            app:scale_top="1650"
+            app:scale_width="250"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:layout_marginLeft="500dp"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/signUp_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            app:scale_height="150"
+            app:scale_textsize="75"
+            app:scale_width="250"
+            app:scale_top="1650"
+            app:scale_left="550"
+            tools:ignore="MissingPrefix" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</RelativeLayout>

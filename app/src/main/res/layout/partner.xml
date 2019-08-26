@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".notice"
+    android:background="#FFFF"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1920"
+        app:scale_base_width="1080">
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="[ 파트너 목록 ]"
+            android:textColor="#000"
+            android:textSize="40dp"
+            android:textStyle="normal"
+            app:scale_height="250"
+            app:scale_textsize="100"
+            app:scale_width="1080"
+            tools:ignore="MissingPrefix"
+            />
+
+        <ImageButton
+            android:id="@+id/partner_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            app:scale_height="130"
+            app:scale_left="50"
+            app:scale_top="60"
+            app:scale_width="130"
+            app:srcCompat="@drawable/back"
+            tools:ignore="MissingPrefix" />
+
+        <ListView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/list"
+            android:ems="2"
+            android:gravity=""
+            app:scale_height="1200"
+            app:scale_left="105"
+            app:scale_top="230"
+            app:scale_width="880"
+            tools:ignore="MissingPrefix" />
+
+
+        <Button
+            android:id="@+id/partner_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="파트너 추가"
+            app:scale_height="200"
+            app:scale_width="400"
+            app:scale_left="350"
+            app:scale_textsize="50"
+            app:scale_top="1500"
+            tools:ignore="MissingPrefix"
+            android:background="@drawable/nomal_edge"/>
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</RelativeLayout>

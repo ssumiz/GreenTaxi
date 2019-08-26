@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".route_search"
+    android:background="#FFFF"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1800"
+        app:scale_base_width="1080"
+        >
+
+        <TextView
+            android:layout_weight="1"
+            android:textStyle="normal"
+            android:textColor="#000"
+            android:layout_alignParentTop="true"
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[문의]"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:layout_margin="25dp"
+            app:scale_height="250"
+            app:scale_textsize="100"
+            app:scale_width="1080"
+            tools:ignore="MissingPrefix"
+            />
+
+
+        <ImageButton
+            android:id="@+id/qna_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFF"
+            android:onClick="onClick"
+            app:srcCompat="@drawable/back"
+            app:scale_height="130"
+            app:scale_width="130"
+            app:scale_top = "60"
+            app:scale_left="50"
+            tools:ignore="MissingPrefix" />
+        <TextView
+
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/greenline"
+            app:scale_top="520"
+            app:scale_height="150"
+            app:scale_width="850"
+            app:scale_left = "60"
+            tools:ignore="MissingPrefix" />
+        //첫번째줄
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="1"
+            android:gravity=""
+            android:text="자주 묻는 질문"
+            android:textColor="#000000"
+            app:scale_height="150"
+            app:scale_left="320"
+            app:scale_textsize="70"
+            app:scale_top="200"
+            app:scale_width="860"
+            tools:ignore="MissingPrefix" />
+
+
+        <TextView
+            android:onClick="onClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity=""
+            android:text="어떻게 이용하나요?"
+            android:textColor="#000"
+            app:scale_textsize="80"
+            app:scale_top="450"
+            app:scale_height="150"
+            app:scale_width="850"
+            app:scale_left = "60"
+
+            tools:ignore="MissingPrefix" />
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="130"
+            app:scale_left="790"
+            app:scale_top="470"
+            app:scale_width="300"
+            app:srcCompat="@drawable/down"
+
+            tools:ignore="MissingPrefix" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</RelativeLayout>

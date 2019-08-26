@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".map"
+    android:id="@+id/map_layout">
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.MapFragment" />
+
+    <Button
+        android:id="@+id/map_setLocationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이 위치로 주소 설정"
+        android:layout_gravity="bottom"
+        android:layout_margin="25dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/map_setLocationTextView"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="100dp"
+        android:background="@drawable/nomal_edge"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text=""
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="15dp" />
+
+</FrameLayout>
