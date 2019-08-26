@@ -1,5 +1,5 @@
 package com.example.greentaxi;
-// 디비 커넥션 클래스에서 언급456
+// 디비 커넥션 클래스에서 언급
 
 public class CookieData {
     private String cookie;
