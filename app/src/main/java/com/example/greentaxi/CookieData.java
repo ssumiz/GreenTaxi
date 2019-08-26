@@ -1,5 +1,4 @@
 package com.example.greentaxi;
-// 디비 커넥션 클래스에서 언급111
 // 뮤즈온 디비 커넥션 클래스에서 언급
 
 public class CookieData {
