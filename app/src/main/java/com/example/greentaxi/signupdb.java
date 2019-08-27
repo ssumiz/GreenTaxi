@@ -45,7 +45,7 @@ public class signupdb extends AppCompatActivity {
         signUp_passCheck = findViewById(R.id.editPassword2);
         signUp_name = findViewById(R.id.editName);
         signUp_email = findViewById(R.id.editEmail);
-        signUp_number = findViewById(R.id.editphoneNumber);
+        signUp_number = findViewById(R.id.editPhoneNumber);
 
         signUp_ok = findViewById(R.id.signUp_ok);
         signUp_no = findViewById(R.id.signUp_cancel);
