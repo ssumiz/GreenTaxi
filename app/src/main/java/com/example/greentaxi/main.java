@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.kakao.auth.ErrorCode;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -41,13 +43,11 @@ public class main extends AppCompatActivity {
 
     private EditText login_id;
     private EditText login_pass;
-
     private Button login_ok;
     private Button signup;
 
 
     private String loginResult;
-
 
 
     private static final String TAG2 = "";
@@ -68,6 +68,8 @@ public class main extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Intent intent = new Intent(getApplicationContext(), signUp.class);
                 startActivity(intent);
 
@@ -83,7 +85,19 @@ public class main extends AppCompatActivity {
             }
         });
 
+
     }
+
+    // 로그인 정보 유무 확인하는 메소드
+    public boolean login_check(){
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+
+        return false;
+    }
+
 }
 
 
