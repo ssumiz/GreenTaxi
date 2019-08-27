@@ -93,8 +93,8 @@ public class signUp extends AppCompatActivity {
         DatabaseReference databaseReference = firebaseDatabase.getReference();
 
         // 정보를 담고있는 클래스를 생성해서 Firebase에 저장하는 코드
-        member_info member_add = new member_info(editId.getText().toString(),editPassword.getText().toString(),
-        editName.getText().toString(),editEmail.getText().toString(),editPhoneNumber.getText().toString(),token);
+        member_info member_add = new member_info(editName.getText().toString(),editId.getText().toString(),
+        editPassword.getText().toString(),editEmail.getText().toString(),editPhoneNumber.getText().toString(),token);
 
         databaseReference.child("member_info").push().setValue(member_add);
 
