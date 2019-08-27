@@ -36,7 +36,11 @@ import java.util.concurrent.ExecutionException;
 
 
 public class main extends AppCompatActivity {
+<<<<<<< HEAD
     private static String IP_ADDRESS = "211.58.194.135";
+=======
+    private static String IP_ADDRESS = "175.112.209.195";
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
     private static String TAG = "phptest";
 
     private EditText login_id;
@@ -47,18 +51,29 @@ public class main extends AppCompatActivity {
 
 
     private String loginResult;
+<<<<<<< HEAD
     private final String TAG3 = "main_get_keyhash";
 
 
     private static final String TAG2 = "";
     SessionCallback callback;
+=======
+
+
+
+    private static final String TAG2 = "";
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+<<<<<<< HEAD
         login_id= findViewById(R.id.inputId);
+=======
+        login_id = findViewById(R.id.inputId);
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
         login_pass = findViewById(R.id.inputPassword);
 
 
@@ -69,6 +84,7 @@ public class main extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Intent intent = new Intent(getApplicationContext(),signupdb.class);
                 startActivity(intent);
             }
@@ -335,6 +351,24 @@ public class main extends AppCompatActivity {
 
 
 
+=======
+                Intent intent = new Intent(getApplicationContext(), signUp.class);
+                startActivity(intent);
+
+            }
+        });
+
+        login_ok.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), main_logined.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+    }
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 }
 
 

@@ -6,6 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+<<<<<<< HEAD
+=======
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +32,13 @@ public class main_logined extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_login);
+<<<<<<< HEAD
         initFirebaseDatabase();
+=======
+
+        //initFirebaseDatabase();
+
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
         backpress = new backPress(this);
 
 
@@ -54,15 +65,26 @@ public class main_logined extends AppCompatActivity {
                                     return;
                                 }
 
+<<<<<<< HEAD
                                 // Get new Instance ID token ( 토큰 받아오는 메소드 )
                                 String token = task.getResult().getToken();
 
                                 Log.d("FCM_token", token);
+=======
+                                // Get new Instance ID token
+                                String token = task.getResult().getToken();
+
+                                Log.d("FCM", token);
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
                                 global.setFcmToken(token);
 
                             }
                         });
+<<<<<<< HEAD
                 mDatabaseReference.push().setValue("fcmToken :"+ global.getFcmToken()+"\n"+"userId : Test" );
+=======
+
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 
                 Intent intent = new Intent(this , route_search.class );
                 startActivity(intent);
@@ -93,7 +115,11 @@ public class main_logined extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
 
+=======
+/*
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
     // FCM 초기화 시켜주는 메소드
     private void initFirebaseDatabase() {
 
@@ -133,6 +159,10 @@ public class main_logined extends AppCompatActivity {
         super.onDestroy();
         mDatabaseReference.removeEventListener(mChildEventListener);
     }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 }
 

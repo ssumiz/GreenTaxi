@@ -7,7 +7,11 @@ public class global extends Application {
     private static String destName;
 
     public static void setStartName(String str){ global.startName = str; }
+<<<<<<< HEAD
     public    static void setDestName(String str){
+=======
+    public static void setDestName(String str){
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
         global.destName = str;
     }
     public static String getStartName(){

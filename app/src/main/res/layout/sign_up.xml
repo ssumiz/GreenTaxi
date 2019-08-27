@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFF"
+    tools:context=".signUp">
     tools:context=".mypage">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,6 +23,7 @@
             android:textStyle="normal"
             android:textColor="#000"
             android:layout_alignParentTop="true"
+            android:id="@+id/signUp_title"
             android:id="@+id/signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,9 +53,15 @@
             tools:ignore="MissingPrefix" />
 
         <EditText
+<<<<<<< HEAD
             android:padding="10dp"
             android:background="@drawable/nomal_edge"
             android:id="@+id/editId"
+=======
+            android:id="@+id/editId"
+            android:padding="10dp"
+            android:background="@drawable/nomal_edge"
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -210,7 +218,11 @@
         <EditText
             android:padding="10dp"
             android:background="@drawable/nomal_edge"
+<<<<<<< HEAD
             android:id="@+id/editphoneNumber"
+=======
+            android:id="@+id/editPhoneNumber"
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -224,12 +236,21 @@
             tools:ignore="MissingPrefix"/>
 
         <Button
+<<<<<<< HEAD
             android:layout_marginLeft="500dp"
             android:id="@+id/signUp_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
+=======
+            android:id="@+id/signUp_ok"
+            android:layout_marginLeft="500dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick= "onClick"
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             android:text="확인"
             android:textSize="25dp"
             app:scale_height="150"
@@ -240,6 +261,7 @@
             tools:ignore="MissingPrefix" />
 
         <Button
+<<<<<<< HEAD
             android:layout_marginLeft="500dp"
             android:textSize="25dp"
             android:layout_marginTop="10dp"
@@ -247,6 +269,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+=======
+            android:id="@+id/signUp_cancel"
+            android:layout_marginLeft="500dp"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick= "onClick"
+>>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             android:text="취소"
             app:scale_height="150"
             app:scale_textsize="75"

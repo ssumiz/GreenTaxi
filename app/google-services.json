@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "15922332135-fsuqm1hd1bbt86j0ioqvj985v3kjpq5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.greentaxi",
+            "certificate_hash": "347e02b297f45f15eafabfba3a6052a7f694d6f7"
+          }
+        },
+        {
           "client_id": "15922332135-5fjh6ei4fuhnq3gavfacd07qm665hl6i.apps.googleusercontent.com",
           "client_type": 3
         }
