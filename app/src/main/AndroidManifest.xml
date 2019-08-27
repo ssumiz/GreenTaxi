@@ -77,9 +77,6 @@
         <activity
             android:name=".signUp"
             android:label="signUp" />
-        <activity
-            android:name=".signupdb"
-            android:label=".signupdb" />
         <activity android:name=".main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

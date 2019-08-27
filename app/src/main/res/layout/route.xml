@@ -74,7 +74,6 @@
                 app:scale_width="825"
                 tools:ignore="MissingPrefix" />
 
-
             <Button
                 android:id="@+id/route_sos"
                 android:layout_width="150dp"

@@ -61,11 +61,7 @@ public class route extends AppCompatActivity {
 
     boolean ride = false;;
 
-<<<<<<< HEAD
-    TextView test, textView, taxifare;
-=======
     TextView test;
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 
     String s_location = null, d_location = null;
     String fare = null, dis = null;
@@ -74,10 +70,7 @@ public class route extends AppCompatActivity {
 
     Double s_LatLng_lati = null, s_LatLng_long = null, d_LatLng_lati = null, d_LatLng_long = null;
 
-<<<<<<< HEAD
-=======
     TextView textView, taxifare;
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
     Button sos;
     ImageButton back;
 
@@ -227,10 +220,7 @@ public class route extends AppCompatActivity {
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
     }
 
 
@@ -411,21 +401,14 @@ public class route extends AppCompatActivity {
 
                     }
                 });
-<<<<<<< HEAD
-=======
 
         /* 일단 보류
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
         mDatabaseReference = mFirebaseDatabase.getReference("message");
         mDatabaseReference.child("Latitude").push().setValue(global.getC_Lati());
         mDatabaseReference.child("Logitude").push().setValue(global.getC_Logi());
         mDatabaseReference.child("Activity").push().setValue("route.class");
             Log.d("test","aria");
-<<<<<<< HEAD
-
-=======
         */
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
     }
 
     private void sendPostToFCM2(){

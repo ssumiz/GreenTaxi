@@ -66,10 +66,6 @@
 
 
         <Button
-<<<<<<< HEAD
-            android:onClick="onClick"
-=======
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,10 +80,6 @@
             />
 
         <Button
-<<<<<<< HEAD
-            android:onClick="onClick"
-=======
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,22 +96,6 @@
 
 
 
-<<<<<<< HEAD
-    <com.kakao.usermgmt.LoginButton
-        android:id="@+id/com_kakao_login"
-        android:text = "카카오톡으로 로그인하기"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:scale_height="200"
-        app:scale_textsize="60"
-        app:scale_width="800"
-        app:scale_top="1225"
-        app:scale_left="150"
-        tools:ignore="MissingPrefix"
-        />
-=======
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
 
         <Button
             android:id="@+id/findId"
@@ -131,11 +107,7 @@
             app:scale_height="150"
             app:scale_textsize="45"
             app:scale_width="400"
-<<<<<<< HEAD
-            app:scale_top="1650"
-=======
             app:scale_top="1400"
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             app:scale_left="150"
             tools:ignore="MissingPrefix"/>
 
@@ -149,11 +121,7 @@
             app:scale_height="150"
             app:scale_textsize="45"
             app:scale_width="400"
-<<<<<<< HEAD
-            app:scale_top="1650"
-=======
             app:scale_top="1400"
->>>>>>> 기존에 있던 PHP 관련 된것들 삭제
             app:scale_left="575"
             tools:ignore="MissingPrefix"/>
 
