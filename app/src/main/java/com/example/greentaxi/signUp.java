@@ -37,6 +37,8 @@ public class signUp extends AppCompatActivity {
          editName = findViewById(R.id.editName);
          editEmail = findViewById(R.id.editEmail);
          editPhoneNumber = findViewById(R.id.editPhoneNumber);
+
+
     }
 
 
@@ -47,21 +49,31 @@ public class signUp extends AppCompatActivity {
                 Boolean empty_Check = emptyCheck(), password_Check = passwordCheck();
 
 
-
-                if( empty_Check == true && password_Check == true) {
+                if( empty_Check == true && password_Check == true ) {
                     signUp();
 
-                    Intent intent = new Intent(this,main.class);
-                    startActivity(intent);
-                    finish();
-                    break;
+
+                    // 공백없이 입력해주세요 알림창
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    dialog.setTitle("회원 가입");
+                    dialog.setMessage("회원가입이 완료되었습니다.");
+                    dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            Intent intent = new Intent(getApplicationContext(),main.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                    });
+                    dialog.show();
+                    Log.d("회원가입",": 회원 가입 완료 ");
 
                 }
 
-
                 // 회원가입 승인 알림창 만들어야함
             break;
-
 
 
             case R.id.signUp_cancel:
@@ -141,53 +153,5 @@ public class signUp extends AppCompatActivity {
 
     }
 
-
-    // 이메일 형식 체크 메소드
-    public boolean emailCheck(){
-        if (!Patterns.EMAIL_ADDRESS.matcher(editEmail.getText().toString()).matches()){
-            return true;
-        }
-        else{
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("오류");
-            dialog.setMessage("이메일 형식이 아닙니다..");
-            dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-            dialog.show();
-            Log.d("회원가입창 이메일 형식",": 형식 불일치 ");
-
-            return false;
-        }
-    }
-
-    // 핸드폰 번호 유효성 확인 메소드
-    public boolean phoneNumberCheck(){
-        if(Pattern.matches("^01(?:0|1|[6-9]) - (?:\\d{3}|\\d{4}) - \\d{4}$",editPhoneNumber.getText().toString())){
-
-            return true;
-
-        }
-
-        else{
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("오류");
-            dialog.setMessage("이메일 형식이 아닙니다..");
-            dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-            dialog.show();
-            Log.d("회원가입창 이메일 형식",": 형식 불일치 ");
-
-            return false;
-        }
-
-    }
 
 }
