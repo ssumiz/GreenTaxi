@@ -96,7 +96,8 @@ public class signUp extends AppCompatActivity {
         member_info member_add = new member_info(editName.getText().toString(),editId.getText().toString(),
         editPassword.getText().toString(),editEmail.getText().toString(),editPhoneNumber.getText().toString(),token);
 
-        databaseReference.child("member_info").push().setValue(member_add);
+        databaseReference.child("member_info").child("name:"+editId.getText().toString()).setValue(member_add);
+
 
 
     }
