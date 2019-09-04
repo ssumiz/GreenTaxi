@@ -156,21 +156,6 @@
             tools:ignore="MissingPrefix" />
         //여덟째줄
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:gravity=""
-            android:onClick="onClick"
-            android:text="송준영"
-            android:textColor="#000000"
-            app:scale_height="150"
-            app:scale_left="105"
-            app:scale_textsize="70"
-            app:scale_top="300"
-            app:scale_width="850"
-
-            tools:ignore="MissingPrefix" />
 
         <ImageView
             android:onClick="onClick"
@@ -210,21 +195,6 @@
 
             tools:ignore="MissingPrefix" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:gravity=""
-            android:onClick="onClick"
-            android:text="이재혁"
-            android:textColor="#000000"
-            app:scale_height="150"
-            app:scale_left="105"
-            app:scale_textsize="70"
-            app:scale_top="460"
-            app:scale_width="850"
-
-            tools:ignore="MissingPrefix" />
 
         <ImageView
             android:onClick="onClick"
@@ -291,6 +261,16 @@
             app:scale_top="1400"
             tools:ignore="MissingPrefix"/>
 
+        <ListView
+            android:id = "@+id/partner_list"
+            app:scale_height="1300"
+            app:scale_width="800"
+            app:scale_left="100"
+            app:scale_textsize="40"
+            app:scale_top="300"
+            tools:ignore="MissingPrefix"
+            android:layout_width="1302dp"
+            android:layout_height="183dp" />
 
 
     </com.ssomai.android.scalablelayout.ScalableLayout>

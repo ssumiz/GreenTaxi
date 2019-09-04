@@ -73,8 +73,8 @@ public class signUp extends AppCompatActivity {
                                 // 정보를 담고있는 클래스를 생성해서 Firebase에 저장하는 코드
                                 member_info member_add = new member_info(editName.getText().toString(),editId.getText().toString(),
                                         editPassword.getText().toString(),editEmail.getText().toString(),editPhoneNumber.getText().toString(),token);
-
                                 databaseReference.child(editId.getText().toString()).setValue(member_add);
+
                                 Toast.makeText(signUp.this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(),main.class);
                                 startActivity(intent);
