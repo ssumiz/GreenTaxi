@@ -1,13 +1,13 @@
 package com.example.greentaxi;
 
 public class currentUserInfo {
-    String Id;
+    private static String Id;
 
-    public String getId() {
+    public static String getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public static void setId(String id) {
         Id = id;
     }
 }

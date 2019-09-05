@@ -54,7 +54,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="230"
+            app:scale_top="250"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //첫번째줄
@@ -68,7 +68,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="380"
+            app:scale_top="400"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //두번째줄
@@ -82,7 +82,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="530"
+            app:scale_top="550"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //세번째줄
@@ -95,7 +95,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="680"
+            app:scale_top="700"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //네번째줄
@@ -109,7 +109,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="830"
+            app:scale_top="850"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //다섯번째줄
@@ -123,7 +123,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="980"
+            app:scale_top="1000"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //여섯번째줄
@@ -137,7 +137,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="1130"
+            app:scale_top="1150"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //일곱째줄
@@ -151,7 +151,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="1280"
+            app:scale_top="1300"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //여덟째줄
@@ -235,17 +235,17 @@
             tools:ignore="MissingPrefix" />
 
         <Button
-            android:id="@+id/partner_ok"
+            android:id="@+id/partner_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="신청목록"
+            android:text="파트너 추가"
             app:scale_height="130"
-            app:scale_width="200"
-            app:scale_left="550"
+            app:scale_left="375"
             app:scale_textsize="40"
-            app:scale_top="1400"
-            tools:ignore="MissingPrefix"/>
+            app:scale_top="1500"
+            app:scale_width="300"
+            tools:ignore="MissingPrefix" />
 
         <Button
             android:id="@+id/partner_cancel"
@@ -258,19 +258,19 @@
             app:scale_width="180"
             app:scale_left="780"
             app:scale_textsize="40"
-            app:scale_top="1400"
+            app:scale_top="1500"
             tools:ignore="MissingPrefix"/>
 
         <ListView
-            android:id = "@+id/partner_list"
+            android:id="@+id/partner_list"
+            android:layout_width="1302dp"
+            android:layout_height="wrap_content"
             app:scale_height="1300"
-            app:scale_width="800"
             app:scale_left="100"
             app:scale_textsize="40"
             app:scale_top="300"
-            tools:ignore="MissingPrefix"
-            android:layout_width="1302dp"
-            android:layout_height="183dp" />
+            app:scale_width="800"
+            tools:ignore="MissingPrefix" />
 
 
     </com.ssomai.android.scalablelayout.ScalableLayout>

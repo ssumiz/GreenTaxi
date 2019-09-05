@@ -100,8 +100,10 @@ public class main extends AppCompatActivity {
                             if (dataSnapshot.child(login_id.getText().toString()).exists()) {
                                 member_info user = dataSnapshot.child(login_id.getText().toString()).getValue(member_info.class);
                                 if (user.getPassword().equals(login_pass.getText().toString())) {
+
                                     currentUserInfo c_user = new currentUserInfo();
                                     c_user.setId(login_id.getText().toString());
+
                                     Intent intent = new Intent(getApplicationContext(), main_logined.class);
                                     startActivity(intent);
                                     finish();
