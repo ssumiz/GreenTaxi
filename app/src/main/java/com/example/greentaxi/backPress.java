@@ -1,9 +1,11 @@
 package com.example.greentaxi;
 
 import android.app.Activity;
-import android.support.v4.app.ActivityCompat;
-import android.view.Gravity;
+
+
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 public class backPress {
 

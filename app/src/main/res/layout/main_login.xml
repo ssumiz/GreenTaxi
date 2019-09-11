@@ -80,7 +80,8 @@
             app:scale_left="150"
             app:scale_textsize="70"
             app:scale_top="900"
-            tools:ignore="MissingPrefix" />
+            tools:ignore="MissingPrefix"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/main_partner"
@@ -119,15 +120,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFFF"
-            app:srcCompat="@drawable/servicenter"
+            android:onClick="onClick"
             android:scaleType="fitCenter"
+            android:text="고객센터"
             app:scale_height="300"
-            app:scale_width="300"
             app:scale_left="650"
             app:scale_textsize="70"
             app:scale_top="1300"
-            android:text="고객센터"
-            android:onClick="onClick"
+            app:scale_width="300"
+            app:srcCompat="@drawable/servicenter"
             tools:ignore="MissingPrefix" />
 
     </com.ssomai.android.scalablelayout.ScalableLayout>

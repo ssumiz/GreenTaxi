@@ -2,22 +2,37 @@ package com.example.greentaxi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+
+import java.util.ArrayList;
+
+import com.example.greentaxi.mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity;
+import com.example.greentaxi.mlkitbarcodescan.ListingSetup.CustomItemClickListener;
+import com.example.greentaxi.mlkitbarcodescan.LocalData.ContactDetail;
+import com.example.greentaxi.mlkitbarcodescan.LocalData.DBHandler;
+import com.example.greentaxi.mlkitbarcodescan.Util.AlertDialog.AlertDialogHelper;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class main_logined extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
@@ -25,6 +40,16 @@ public class main_logined extends AppCompatActivity {
     private ChildEventListener mChildEventListener;
 
     private backPress backpress;
+
+
+    DBHandler dbHandler;
+    RecyclerView rvContactsList;
+    FloatingActionButton fabAdd;
+
+    ArrayList<ContactDetail> contactDetailArrayList;
+    LinearLayoutManager layoutManager;
+    AlertDialogHelper alertDialogHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +58,9 @@ public class main_logined extends AppCompatActivity {
         //initFirebaseDatabase();
 
         backpress = new backPress(this);
+        ButterKnife.bind(this);
+        dbHandler = new DBHandler(this);
+        alertDialogHelper=new AlertDialogHelper(this);
 
 
 
@@ -43,6 +71,26 @@ public class main_logined extends AppCompatActivity {
         //super.onBackPressed();
         backpress.onBackPressed();
 
+    }
+
+    public void loadAdapter(final ArrayList<ContactDetail> itemsList) {
+
+        rvContactsList.post(() -> {
+            rvContactsList.getRecycledViewPool().clear();
+
+        });
+    }
+    public CustomItemClickListener getItemCLickListener()
+    {
+        CustomItemClickListener customItemClickListener=new CustomItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+
+            }
+
+        };
+
+        return customItemClickListener;
     }
 
     public void onClick(View view){
@@ -73,11 +121,13 @@ public class main_logined extends AppCompatActivity {
                 break;
 
             case R.id.main_alarm:
+                Intent record = new Intent(this, com.example.greentaxi.record.class);
+                startActivity(record);
                 break;
 
             case R.id.main_record:
-                Intent record = new Intent(this, com.example.greentaxi.record.class);
-                startActivity(record);
+                Intent barcord = new Intent(this, com.example.greentaxi.mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity.class);
+                startActivity(barcord);
                 break;
 
             case R.id.main_partner:

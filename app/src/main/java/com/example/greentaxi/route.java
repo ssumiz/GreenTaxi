@@ -12,9 +12,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,9 +20,15 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import com.example.greentaxi.mlkitbarcodescan.Util.BarcodeScanner;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -53,6 +57,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 public class route extends AppCompatActivity {
     private DatabaseReference mDatabaseReference;
     private FirebaseDatabase mFirebaseDatabase;
@@ -62,6 +69,9 @@ public class route extends AppCompatActivity {
     private backPress backpress;
 
     boolean ride = false;;
+
+    @BindView(R.id.route_sendPartner)
+    FloatingActionButton fabAdd;
 
     TextView test;
 
@@ -225,6 +235,11 @@ public class route extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.route_sendPartner)
+    public void onViewClicked() {
+        Intent barcodeScanner=new Intent(this, com.example.greentaxi.mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity.class);
+        startActivity(barcodeScanner);
+    }
 
     private final LocationListener mLocationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
