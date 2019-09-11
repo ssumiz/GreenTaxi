@@ -8,12 +8,9 @@ import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+
 import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Menu;
@@ -25,6 +22,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +66,7 @@ public class recordstart extends AppCompatActivity implements View.OnClickListen
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Voice Recorder");
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
-        setSupportActionBar(toolbar);
+        setActionBar(toolbar);
 
         linearLayoutRecorder = (LinearLayout) findViewById(R.id.linearLayoutRecorder);
         chronometer = (Chronometer) findViewById(R.id.chronometerTimer);

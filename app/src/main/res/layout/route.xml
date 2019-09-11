@@ -88,8 +88,9 @@
                 app:scale_width="400"
                 tools:ignore="MissingPrefix" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/route_sendPartner"
+                app:srcCompat="@drawable/arlam"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="#00FF0000"
@@ -101,6 +102,7 @@
                 app:scale_top="1700"
                 app:scale_width="400"
                 tools:ignore="MissingPrefix"
+                android:onClick="onClick"
 
                 />
 

@@ -1,9 +1,10 @@
 package com.example.greentaxi;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.*;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class serviceCenter extends AppCompatActivity {
 
