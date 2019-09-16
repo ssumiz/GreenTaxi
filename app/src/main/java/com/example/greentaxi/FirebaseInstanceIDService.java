@@ -51,6 +51,7 @@ public class FirebaseInstanceIDService extends FirebaseMessagingService {
         RemoteMessage.Notification body = remoteMessage.getNotification();
         Log.d("Test","Notification Body : "+body.getBody());
         Log.d("Test","Notification Body : "+body.getTitle());
+        Log.d("Test","Notification Body : "+body.getClickAction());
 
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getApplicationContext())

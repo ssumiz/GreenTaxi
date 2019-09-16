@@ -379,12 +379,14 @@ public class route extends AppCompatActivity {
                                                 try {
                                                     JSONObject root = new JSONObject();
                                                     JSONObject notification = new JSONObject();
-                                                    notification.put("body", user_name + "님이 택시에 승차하였습니다.");
 
+                                                    notification.put("body", user_name + "님이 택시에 승차하였습니다.");
                                                     notification.put("title", getString(R.string.app_name));
-                                                    root.put("click_action", "OPEN_ACTIVITY");
+                                                    notification.put("click_action", "OPEN_ACTIVITY");
+
                                                     root.put("notification", notification);
                                                     root.put("to", token);
+                                                    root.put("click_action", "OPEN_ACTIVITY");
                                                     Log.d("inner_send_token", "" + token);
                                                     // FMC 메시지 생성 end
 

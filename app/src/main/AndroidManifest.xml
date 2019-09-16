@@ -92,7 +92,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".route">
+        <activity
+            android:name=".route">
             <intent-filter>
                 <action android:name="OPEN_ACTIVITY"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
