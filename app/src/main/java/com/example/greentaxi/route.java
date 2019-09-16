@@ -353,9 +353,10 @@ public class route extends AppCompatActivity {
 
     private void sendPostToFCM(){
         currentUserInfo user = new currentUserInfo();
-        final String user_name = user.getId();
+        final String user_id = user.getId();
+        final String user_name = user.getName();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mFirebaseDatabase.getReference("partner_list").child(user_name).addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.getReference("partner_list").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
 
@@ -422,85 +423,80 @@ public class route extends AppCompatActivity {
             }
             });
 
-        /*
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w("FCM", "getInstanceId failed", task.getException());
-                            return;
-                        }
-
-                        // Get new Instance ID token
-                        String token = task.getResult().getToken();
-
-                        Log.d("FCM", token);
-                        global.setFcmToken(token);
-
-                    }
-                });
-                */
-
-
-        /* 일단 보류
-        mDatabaseReference = mFirebaseDatabase.getReference("message");
-        mDatabaseReference.child("Latitude").push().setValue(global.getC_Lati());
-        mDatabaseReference.child("Logitude").push().setValue(global.getC_Logi());
-        mDatabaseReference.child("Activity").push().setValue("route.class");
-            Log.d("test","aria");
-        */
-
     }
 
     private void sendPostToFCM2(){
-
+        currentUserInfo user = new currentUserInfo();
+        final String user_id = user.getId();
+        final String user_name = user.getName();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mFirebaseDatabase.getReference("member_info").addListenerForSingleValueEvent(new ValueEventListener() {
+        mFirebaseDatabase.getReference("partner_list").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+
+                final ArrayList<String> partner_arrayList = new ArrayList<>();
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    partner_arrayList.add(data.getValue().toString());
+                    Log.d("hello", "" + data.getValue().toString());
+                    Log.d("array",""+partner_arrayList.toString());
+
+                    FirebaseDatabase databaseReference = FirebaseDatabase.getInstance();
+                    databaseReference.getReference("member_info").child(data.getValue().toString()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            final String token = dataSnapshot.child("token").getValue().toString();
+                            Log.d("send_token", "" + token);
                             // FMC 메시지 생성 start
-                            JSONObject root = new JSONObject();
-                            JSONObject notification = new JSONObject();
-                            notification.put("body", "파트너가 택시에 하차하였습니다.");
-                            notification.put("title", getString(R.string.app_name));
-                            root.put("notification", notification);
-                            root.put("to", "f5vqg99dxac:APA91bHFbQgHgsIP35ROEMnG8npAaD4JKEFPIPPQcDQrAyby2PkcfngICDi0FjIoNkAhEUYVVLt6FqOwzzsJpkeHbX713FbEq9dqa1cllsA5zOyA5yTfsxGs-kDFKWLHpc0LnPimDmqw");
-                            root.put("to","cztH31LahlM:APA91bGnjlHoNufZSbGbDCQy5BOFA5VQg1R6WuzGAwnrLNO0zgvz0h6VfajhyKhUXAU5Vs4lcM_LSQSbn1fyaoLJlyvPLFoaIzwKoZvlMrhIc2wJmJS-wezkY-xZ3VWhgHbC_cKz_g60");
-                            // FMC 메시지 생성 end
-                            // 재혁
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        JSONObject root = new JSONObject();
+                                        JSONObject notification = new JSONObject();
+                                        notification.put("body", user_name + "님이 택시에 하차하였습니다.");
 
-                            URL Url = new URL(FCM_MESSAGE_URL);
-                            HttpURLConnection conn = (HttpURLConnection) Url.openConnection();
-                            conn.setRequestMethod("POST");
-                            conn.setDoOutput(true);
-                            conn.setDoInput(true);
-                            conn.addRequestProperty("Authorization", "key=" + SERVER_KEY);
-                            conn.setRequestProperty("Accept", "application/json");
-                            conn.setRequestProperty("Content-type", "application/json");
-                            OutputStream os = conn.getOutputStream();
-                            os.write(root.toString().getBytes("utf-8"));
-                            os.flush();
-                            conn.getResponseCode();
+                                        notification.put("title", getString(R.string.app_name));
+                                        root.put("click_action", "OPEN_ACTIVITY");
+                                        root.put("notification", notification);
+                                        root.put("to", token);
+                                        Log.d("inner_send_token", "" + token);
+                                        // FMC 메시지 생성 end
 
+                                        URL Url = new URL(FCM_MESSAGE_URL);
+                                        HttpURLConnection conn = (HttpURLConnection) Url.openConnection();
+                                        conn.setRequestMethod("POST");
+                                        conn.setDoOutput(true);
+                                        conn.setDoInput(true);
+                                        conn.addRequestProperty("Authorization", "key=" +SERVER_KEY);
+                                        conn.setRequestProperty("Accept", "application/json");
+                                        conn.setRequestProperty("Content-type", "application/json");
+                                        OutputStream os = conn.getOutputStream();
+                                        os.write(root.toString().getBytes("utf-8"));
+                                        os.flush();
+                                        conn.getResponseCode();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }).start();
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
-                    }
-                }).start();
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
 
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+
     }// sendFCM 끝부분
 
 

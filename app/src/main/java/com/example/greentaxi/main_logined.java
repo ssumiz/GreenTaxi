@@ -121,12 +121,12 @@ public class main_logined extends AppCompatActivity {
                 break;
 
             case R.id.main_alarm:
-                Intent record = new Intent(this, com.example.greentaxi.record.class);
+                Intent record = new Intent(this, com.example.greentaxi.mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity.class);
                 startActivity(record);
                 break;
 
             case R.id.main_record:
-                Intent barcord = new Intent(this, com.example.greentaxi.mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity.class);
+                Intent barcord = new Intent(this, com.example.greentaxi.record.class);
                 startActivity(barcord);
                 break;
 

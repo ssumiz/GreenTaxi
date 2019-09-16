@@ -16,6 +16,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class main extends AppCompatActivity {
@@ -74,6 +78,17 @@ public class main extends AppCompatActivity {
 
                                     currentUserInfo c_user = new currentUserInfo();
                                     c_user.setId(login_id.getText().toString());
+                                    c_user.setName(dataSnapshot.child(login_id.getText().toString()).child("userName").getValue().toString());
+                                    Log.d("userId 출력테스트",c_user.getName());
+
+                                    // 로그인시 token 업데이트
+                                    String token = FirebaseInstanceId.getInstance().getToken();
+                                    Map<String, Object> taskMap = new HashMap<String, Object>();
+                                    taskMap.put("token", token);
+
+                                    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                                    DatabaseReference dataReference = firebaseDatabase.getReference("member_info").child(c_user.getId());
+                                    dataReference.updateChildren(taskMap);
 
                                     Intent intent = new Intent(getApplicationContext(), main_logined.class);
                                     startActivity(intent);
