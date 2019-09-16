@@ -12,8 +12,10 @@
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:id="@+id/sl1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:scale_base_height="1600"
+        android:layout_height="718dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        app:scale_base_height="1900"
         app:scale_base_width="1080">
 
         <TextView
@@ -54,7 +56,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="250"
+            app:scale_top="230"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //첫번째줄
@@ -82,10 +84,11 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="550"
+            app:scale_top="570"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //세번째줄
+
         <TextView
 
             android:layout_width="359dp"
@@ -95,7 +98,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="700"
+            app:scale_top="750"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //네번째줄
@@ -109,7 +112,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="850"
+            app:scale_top="930"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //다섯번째줄
@@ -123,7 +126,7 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="1000"
+            app:scale_top="1110"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //여섯번째줄
@@ -137,129 +140,38 @@
             android:gravity=""
             app:scale_height="150"
             app:scale_left="105"
-            app:scale_top="1150"
+            app:scale_top="1290"
             app:scale_width="880"
             tools:ignore="MissingPrefix" />
         //일곱째줄
 
-        <TextView
 
-            android:layout_width="359dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/greenline"
-            android:ems="2"
-            android:gravity=""
-            app:scale_height="150"
-            app:scale_left="105"
-            app:scale_top="1300"
-            app:scale_width="880"
-            tools:ignore="MissingPrefix" />
-        //여덟째줄
-
-
-        <ImageView
-            android:onClick="onClick"
-            android:id="@+id/speaker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:scale_height="80"
-            app:scale_left="650"
-            app:scale_top="340"
-            app:scale_width="170"
-            app:srcCompat="@drawable/speaker1"
-
-            tools:ignore="MissingPrefix" />
-        <ImageView
-            android:onClick="onClick"
-            android:id="@+id/pluse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:scale_height="80"
-            app:scale_left="740"
-            app:scale_top="340"
-            app:scale_width="170"
-            app:srcCompat="@drawable/plus"
-
-            tools:ignore="MissingPrefix" />
-
-        <ImageView
-            android:onClick="onClick"
-            android:id="@+id/Munus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:scale_height="80"
-            app:scale_left="840"
-            app:scale_top="340"
-            app:scale_width="170"
-            app:srcCompat="@drawable/minus"
-
-            tools:ignore="MissingPrefix" />
-
-
-        <ImageView
-            android:onClick="onClick"
-            android:id="@+id/speaker1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:scale_height="80"
-            app:scale_left="650"
-            app:scale_top="490"
-            app:scale_width="170"
-            app:srcCompat="@drawable/speaker2"
-
-            tools:ignore="MissingPrefix" />
-        <ImageView
-            android:onClick="onClick"
-            android:id="@+id/pluse1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:scale_height="80"
-            app:scale_left="740"
-            app:scale_top="490"
-            app:scale_width="170"
-            app:srcCompat="@drawable/plus"
-
-            tools:ignore="MissingPrefix" />
-
-        <ImageView
-            android:onClick="onClick"
-            android:id="@+id/Munus1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:scale_height="80"
-            app:scale_left="840"
-            app:scale_top="490"
-            app:scale_width="170"
-            app:srcCompat="@drawable/minus"
-
-            tools:ignore="MissingPrefix" />
-
-        <Button
+        <ImageButton
             android:id="@+id/partner_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="253dp"
+            android:layout_height="66dp"
+            android:adjustViewBounds="true"
             android:onClick="onClick"
-            android:text="파트너 추가"
             app:scale_height="130"
-            app:scale_left="375"
-            app:scale_textsize="40"
-            app:scale_top="1500"
-            app:scale_width="300"
+            app:scale_left="720"
+            app:scale_top="1700"
+            app:scale_width="130"
+            app:srcCompat="@drawable/plus2"
             tools:ignore="MissingPrefix" />
 
-        <Button
+        <ImageButton
             android:id="@+id/partner_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
             android:layout_marginTop="10dp"
             android:onClick="onClick"
-            android:text="편집"
             app:scale_height="130"
-            app:scale_width="180"
-            app:scale_left="780"
-            app:scale_textsize="40"
-            app:scale_top="1500"
-            tools:ignore="MissingPrefix"/>
+            app:scale_left="850"
+            app:scale_top="1700"
+            app:scale_width="130"
+            app:srcCompat="@drawable/minus2"
+            tools:ignore="MissingPrefix" />
 
         <ListView
             android:id="@+id/partner_list"
