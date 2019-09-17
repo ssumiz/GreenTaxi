@@ -13,7 +13,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -53,6 +60,7 @@ public class route_search extends AppCompatActivity {
 
 
     private String loginResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,12 +68,12 @@ public class route_search extends AppCompatActivity {
 
         backpress = new backPress(this);
 
-        route_search_destSearch= findViewById(R.id.route_search_destSearch);
+        route_search_destSearch = findViewById(R.id.route_search_destSearch);
         route_search_startSearch = findViewById(R.id.route_search_startSearch);
         recentSearch_list = findViewById(R.id.route_search_recentSearch_list);
         favorites_list = findViewById(R.id.route_search_favorites_list);
         route_search_start = findViewById(R.id.route_search_start);
-        route_search_destinate= findViewById(R.id.route_search_destinate);
+        route_search_destinate = findViewById(R.id.route_search_destinate);
         starting = findViewById(R.id.route_search_start);
         destini = findViewById(R.id.route_search_destinate);
 
@@ -78,13 +86,12 @@ public class route_search extends AppCompatActivity {
 
                 String START = starting.getText().toString();
                 String DESTI = destini.getText().toString();
-                Log.d("텍스트 테스트 " , START + DESTI);
-
+                Log.d("텍스트 테스트 ", START + DESTI);
 
 
                 InsertData task = new InsertData();
                 try {
-                    loginResult = task.execute("http://" + IP_ADDRESS + "/start_and.php", START,DESTI).get();
+                    loginResult = task.execute("http://" + IP_ADDRESS + "/start_and.php", START, DESTI).get();
                     loginResult.trim();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
@@ -92,24 +99,22 @@ public class route_search extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if(loginResult.equals("\uFEFF\uFEFF"))
-                {
+                if (loginResult.equals("\uFEFF\uFEFF")) {
                     route_search.this.finish();
-                    Log.d("맞다면 " , "true");
+                    Log.d("맞다면 ", "true");
                 } else {
                     Log.d("틀리다면", "false");
                 }
 
                 Intent intent4 = new Intent(route_search.this, route.class);
-                intent4.putExtra("start",start);
-                intent4.putExtra("end",dest);
+                intent4.putExtra("start", start);
+                intent4.putExtra("end", dest);
                 startActivity(intent4);
 
                 System.out.println(loginResult);
 
                 starting.setText("");
                 destini.setText("");
-
 
 
             }
@@ -125,26 +130,17 @@ public class route_search extends AppCompatActivity {
         favorites_list.setAdapter(adapter2);
         recentSearch_list.setAdapter(adapter);
 
-        resentSearch.add("- 북구 복현동 360-4");
-        resentSearch.add("- 영진전문대학");
-        resentSearch.add("- 동대구역");
-        resentSearch.add("- 중구 동성로 1가");
-
-        favorites.add("- 북구 복현동 360-4");
-        favorites.add("- 동대구역");
 
         favorites_list.setVisibility(View.INVISIBLE);
 
         extras = getIntent().getExtras();
 
-        start= route_search_start.getText().toString();
-        dest= route_search_destinate.getText().toString();
+        start = route_search_start.getText().toString();
+        dest = route_search_destinate.getText().toString();
 
 
-            route_search_start.setText(global.getStartName());
-            route_search_destinate.setText(global.getDestName());
-
-
+        route_search_start.setText(global.getStartName());
+        route_search_destinate.setText(global.getDestName());
 
 
     }
@@ -237,24 +233,21 @@ public class route_search extends AppCompatActivity {
     }
 
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         backpress.onBackPressed();
     }
 
-    public void onClick(View v){
+    public void onClick(View v) {
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.route_search_back:
                 Intent intent = new Intent(this, main_logined.class);
                 startActivity(intent);
                 break;
             case R.id.route_search_recentSearch:
-                    recentSearch_list.setVisibility(View.VISIBLE);
-                    favorites_list.setVisibility(View.INVISIBLE);
+                click();
                 break;
             case R.id.route_search_favorites:
-                    favorites_list.setVisibility(View.VISIBLE);
-                    recentSearch_list.setVisibility(View.INVISIBLE);
                 break;
             case R.id.route_search_startSearch:
                 Intent intent2 = new Intent(this, map.class);
@@ -265,14 +258,34 @@ public class route_search extends AppCompatActivity {
                 startActivity(intent3);
                 break;
             case R.id.route_search_ok:
+                click();
                 Intent intent4 = new Intent(this, route.class);
-                intent4.putExtra("start",start);
-                intent4.putExtra("end",dest);
+                intent4.putExtra("start", start);
+                intent4.putExtra("end", dest);
                 startActivity(intent4);
                 break;
 
 
-
         }
+
     }
+
+    public void click() {
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference("lately");
+        lately lately_add = new lately(route_search_start.getText().toString(),
+                route_search_destinate.getText().toString());
+        Log.d("테스트",route_search_start.getText().toString());
+        currentUserInfo user = new currentUserInfo();
+        String userid = user.getId();
+        databaseReference.child(userid).setValue(lately_add);
+
+    }
+
+    ;
+
 }
+
+
+

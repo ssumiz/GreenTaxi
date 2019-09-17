@@ -87,16 +87,16 @@
             android:id="@+id/route_search_destinate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:ems="10"
-            android:inputType="textShortMessage"
             android:background="@drawable/nomal_edge"
+            android:ems="10"
             android:gravity="center"
             android:hint="도착지 검색"
+            android:inputType="textShortMessage"
+            app:scale_height="150"
+            app:scale_left="200"
             app:scale_textsize="35"
             app:scale_top="410"
-            app:scale_height="150"
             app:scale_width="700"
-            app:scale_left = "200"
 
             tools:ignore="MissingPrefix" />
 
@@ -117,7 +117,7 @@
         <ImageView
             android:id="@+id/route_search_ok"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:onClick="onClick"
             app:scale_height="150"
             app:scale_left="850"
