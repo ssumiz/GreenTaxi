@@ -56,6 +56,37 @@
                 app:scale_left="70"
                 tools:ignore="MissingPrefix" />
 
+            <ImageView
+                android:id="@+id/imageViewRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_microphone"
+                android:layout_marginEnd="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:scale_height="130"
+                app:scale_width="130"
+                app:scale_top = "90"
+                app:scale_left="900"
+                tools:ignore="MissingPrefix"
+                />
+
+            <ImageView
+                android:id="@+id/imageViewStop"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_stop"
+                android:tint="@android:color/darker_gray"
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true"
+                app:scale_height="130"
+                app:scale_width="130"
+                app:scale_top = "90"
+                app:scale_left="900"
+                tools:ignore="MissingPrefix"
+                />
+
             <Button
                 android:id="@+id/route_ride"
                 android:onClick="onClick"

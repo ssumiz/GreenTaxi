@@ -10,19 +10,26 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.greentaxi.mlkitbarcodescan.Util.BarcodeScanner;
 import com.google.android.gms.maps.model.LatLng;
@@ -50,6 +57,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -60,13 +68,23 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class route extends AppCompatActivity {
+public class route extends AppCompatActivity implements View.OnClickListener{
     private DatabaseReference mDatabaseReference;
     private FirebaseDatabase mFirebaseDatabase;
     private static final String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
     private static final String SERVER_KEY = "AAAAA7ULgec:APA91bHN7mj4A1XuBvCutP70RJJb55yamoDOTavLIMoVoLAyHvAhZcN4iWssGcmr_9ynWrxG4g2PulB5qhSgDAUacuVPwiqdKW66HcsKf7qpsLNkfQckQ01Eq5tSrXhn8cJXyQCc66JB";
 
     private backPress backpress;
+
+    private ImageView imageViewRecord, imageViewStop;
+
+    private LinearLayout tmap;
+    private MediaRecorder mRecorder;
+
+    private String fileName = null;
+    private int lastProgress = 0;
+    private Handler mHandler = new Handler();
+    private int RECORD_AUDIO_REQUEST_CODE =123 ;
 
     boolean ride = false;;
 
@@ -101,6 +119,12 @@ public class route extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.route);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getPermissionToRecordAudio();
+        }
+
+        initViews();
 
         backpress = new backPress(this);
 
@@ -235,6 +259,132 @@ public class route extends AppCompatActivity {
 
     }
 
+    private void initViews() {
+
+        /** setting up the toolbar  **/
+
+
+
+
+        imageViewRecord = (ImageView) findViewById(R.id.imageViewRecord);
+        imageViewStop = (ImageView) findViewById(R.id.imageViewStop);
+
+
+        imageViewRecord.setOnClickListener(this);
+        imageViewStop.setOnClickListener(this);
+
+
+    }
+
+    private void prepareforStop() {
+
+        imageViewRecord.setVisibility(View.VISIBLE);
+        imageViewStop.setVisibility(View.GONE);
+
+
+    }
+
+    private void prepareforRecording() {
+
+        imageViewRecord.setVisibility(View.GONE);
+        imageViewStop.setVisibility(View.VISIBLE);
+
+
+    }
+
+
+
+    private void startRecording() {
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        File root = android.os.Environment.getExternalStorageDirectory();
+        File file = new File(root.getAbsolutePath() + "/VoiceRecorderSimplifiedCoding/Audios");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        fileName =  root.getAbsolutePath() + "/VoiceRecorderSimplifiedCoding/Audios/" + String.valueOf(System.currentTimeMillis() + ".mp3");
+        Log.d("filename",fileName);
+        mRecorder.setOutputFile(fileName);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+        try {
+            mRecorder.prepare();
+            mRecorder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        lastProgress = 0;
+
+
+        // making the imageview a stop button
+        //starting the chronometer
+
+    }
+
+
+    private void stopRecording() {
+
+        try{
+            mRecorder.stop();
+            mRecorder.release();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        mRecorder = null;
+        //starting the chronometer
+
+        //showing the play button
+        Toast.makeText(this, "Recording saved successfully.", Toast.LENGTH_SHORT).show();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void getPermissionToRecordAudio() {
+        // 1) Use the support library version ContextCompat.checkSelfPermission(...) to avoid
+        // checking the build version since Context.checkSelfPermission(...) is only available
+        // in Marshmallow
+        // 2) Always check for permission (even if permission has already been granted)
+        // since the user can revoke permissions at any time through Settings
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ) {
+
+            // The permission is NOT already granted.
+            // Check if the user has been asked about this permission already and denied
+            // it. If so, we want to give more explanation about why the permission is needed.
+            // Fire off an async request to actually get the permission
+            // This will show the standard permission request dialog UI
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    RECORD_AUDIO_REQUEST_CODE);
+
+        }
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        // Make sure it's our original READ_CONTACTS request
+        if (requestCode == RECORD_AUDIO_REQUEST_CODE) {
+            if (grantResults.length == 3 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[2] == PackageManager.PERMISSION_GRANTED){
+
+                //Toast.makeText(this, "Record Audio permission granted", Toast.LENGTH_SHORT).show();
+
+            } else {
+                Toast.makeText(this, "You must give permissions to use this app. App is exiting.", Toast.LENGTH_SHORT).show();
+                finishAffinity();
+            }
+        }
+
+    }
+
+
+
+
     @OnClick(R.id.route_sendPartner)
     public void onViewClicked() {
         Intent barcodeScanner=new Intent(this, com.example.greentaxi.mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity.class);
@@ -320,6 +470,15 @@ public class route extends AppCompatActivity {
     }
 
     public void onClick(View v) {
+
+        if( v == imageViewRecord ){
+            prepareforRecording();
+            startRecording();
+        }else if( v == imageViewStop ) {
+            prepareforStop();
+            stopRecording();
+        }
+
         switch (v.getId()) {
             case R.id.route_back:
                 Intent intent = new Intent(this, route_search.class);

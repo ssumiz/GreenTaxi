@@ -126,8 +126,9 @@ public class main_logined extends AppCompatActivity {
                 break;
 
             case R.id.main_record:
-                Intent barcord = new Intent(this, com.example.greentaxi.record.class);
-                startActivity(barcord);
+                Intent test = new Intent(this, RecordingListActivity.class);
+                test.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(test);
                 break;
 
             case R.id.main_partner:

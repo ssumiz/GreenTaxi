@@ -63,10 +63,8 @@ public class recordstart extends AppCompatActivity implements View.OnClickListen
     private void initViews() {
 
         /** setting up the toolbar  **/
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Voice Recorder");
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
-        setActionBar(toolbar);
+
+
 
         linearLayoutRecorder = (LinearLayout) findViewById(R.id.linearLayoutRecorder);
         chronometer = (Chronometer) findViewById(R.id.chronometerTimer);

@@ -75,16 +75,13 @@ public class RecordingListActivity extends AppCompatActivity {
     private void initViews() {
 
         /** setting up the toolbar  **/
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Recording List");
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
-       setActionBar(toolbar);
+
 
         /** enabling back button ***/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /** setting up recyclerView **/
-        recyclerViewRecordings = (RecyclerView) findViewById(R.id.recyclerViewRecordings);
+
         recyclerViewRecordings.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false));
         recyclerViewRecordings.setHasFixedSize(true);
 
