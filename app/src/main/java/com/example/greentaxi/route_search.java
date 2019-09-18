@@ -26,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,8 +38,15 @@ public class route_search extends AppCompatActivity {
     private backPress backpress;
 
     ImageButton route_search_startSearch, route_search_destSearch;
-    ListView recentSearch_list;
-    ListView favorites_list;
+    private ListView recentSearch_list;
+    private ListView favorites_list;
+    private ArrayAdapter<String> adapter;
+    private DatabaseReference databaseReference;
+    List<Object> Array = new ArrayList<>();
+
+    String c_user;
+
+    currentUserInfo user = new currentUserInfo();
 
     EditText route_search_start, route_search_destinate;
 
@@ -56,10 +64,12 @@ public class route_search extends AppCompatActivity {
     private EditText destini;
 
 
-    private ImageView send;
+    private ImageView send,star;
+
 
 
     private String loginResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +88,13 @@ public class route_search extends AppCompatActivity {
         destini = findViewById(R.id.route_search_destinate);
 
         send = findViewById(R.id.route_search_ok);
+        star = findViewById(R.id.star);
+
+
+
 
         ImageView buttonInsert = findViewById(R.id.route_search_ok);
+        ImageView buttoninsert = findViewById(R.id.star);
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,9 +260,66 @@ public class route_search extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.route_search_recentSearch:
-                click();
+                // 최근검색 넣어주는 코드입니다.
+                adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>());
+                recentSearch_list.setAdapter(adapter);
+
+                c_user = user.getId();
+                Log.d("user", c_user + " ");
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("lately").child(c_user);
+
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                adapter.clear();
+
+                                                                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                                                    String msg = data.getValue().toString();
+                                                                    Array.add(msg);
+                                                                    adapter.add(msg);
+                                                                }
+                                                                adapter.notifyDataSetChanged();
+                                                                recentSearch_list.setSelection(adapter.getCount() - 1);
+                                                            }
+
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                            }
+                                                        });
+                recent();
+
                 break;
             case R.id.route_search_favorites:
+                adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>());
+                recentSearch_list.setAdapter(adapter);
+
+                c_user = user.getId();
+                Log.d("user", c_user + " ");
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("favorite").child(c_user);
+
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        adapter.clear();
+
+                        for (DataSnapshot data : dataSnapshot.getChildren()) {
+                            String msg = data.getValue().toString();
+                            Array.add(msg);
+                            adapter.add(msg);
+                        }
+                        adapter.notifyDataSetChanged();
+                        recentSearch_list.setSelection(adapter.getCount() - 1);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 break;
             case R.id.route_search_startSearch:
                 Intent intent2 = new Intent(this, map.class);
@@ -258,20 +330,23 @@ public class route_search extends AppCompatActivity {
                 startActivity(intent3);
                 break;
             case R.id.route_search_ok:
-                click();
                 Intent intent4 = new Intent(this, route.class);
                 intent4.putExtra("start", start);
                 intent4.putExtra("end", dest);
                 startActivity(intent4);
                 break;
+            case R.id.star:
+                favorite();
+
+
 
 
         }
 
     }
 
-    public void click() {
-
+    public void recent() {
+        // 최근검색한것을 디비에 넣어주는 코드입니다.
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("lately");
         lately lately_add = new lately(route_search_start.getText().toString(),
@@ -281,9 +356,20 @@ public class route_search extends AppCompatActivity {
         String userid = user.getId();
         databaseReference.child(userid).setValue(lately_add);
 
+
     }
 
-    ;
+    public void favorite(){
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference("favorite");
+        favorite favorite_add = new favorite(route_search_start.getText().toString(),
+                route_search_destinate.getText().toString());
+        Log.d("테스트",route_search_start.getText().toString());
+        currentUserInfo user = new currentUserInfo();
+        String userid = user.getId();
+        databaseReference.child(userid).setValue(favorite_add);
+    }
 
 }
 

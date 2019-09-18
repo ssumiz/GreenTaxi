@@ -50,6 +50,8 @@
             app:scale_left="50"
             tools:ignore="MissingPrefix" />
 
+
+
         <EditText
             android:id="@+id/route_search_start"
             android:layout_width="match_parent"
@@ -85,7 +87,7 @@
 
         <EditText
             android:id="@+id/route_search_destinate"
-            android:layout_width="match_parent"
+            android:layout_width="142dp"
             android:layout_height="match_parent"
             android:background="@drawable/nomal_edge"
             android:ems="10"
@@ -114,18 +116,31 @@
             tools:ignore="MissingPrefix"
             android:scaleType="centerInside"/>
 
+
         <ImageView
             android:id="@+id/route_search_ok"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="25dp"
             android:onClick="onClick"
-            app:scale_height="150"
+            app:scale_height="140"
             app:scale_left="850"
-            app:scale_top="330"
+            app:scale_top="250"
             app:scale_width="300"
             app:srcCompat="@drawable/check"
 
             tools:ignore="MissingPrefix" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:onClick="onClick"
+            app:scale_height="140"
+            app:scale_left="850"
+            app:scale_top="410"
+            app:scale_width="300"
+            app:srcCompat="@drawable/star"
+            tools:ignore="MissingPrefix"/>
 
 
         <TextView
