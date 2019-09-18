@@ -4,9 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.example.greentaxi.RecordingListActivity">
+    tools:context=".RecordingListActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRecordings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        />
 
     <TextView
         android:id="@+id/textViewNoRecordings"
