@@ -49,6 +49,20 @@
             app:scale_left = "900"
             tools:ignore="MissingPrefix" />
 
+        <ImageButton
+            android:id="@+id/main_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick= "onClick"
+            app:srcCompat="@drawable/settings"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            app:scale_textsize="50"
+            app:scale_height="200"
+            app:scale_width="150"
+            app:scale_left = "700"
+            tools:ignore="MissingPrefix" />
+
         <TextView
             android:onClick="onClick"
             android:id="@+id/main_search"

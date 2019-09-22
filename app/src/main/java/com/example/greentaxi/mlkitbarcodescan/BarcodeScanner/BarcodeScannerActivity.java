@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
@@ -17,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.greentaxi.R;
 import com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.BarcodeScanningProcessor;
-import com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.BarcodeScanningProcessor.BarcodeResultListener;
 import com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.OverlayView;
 import com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.common.CameraSource;
 import com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.common.CameraSourcePreview;
@@ -40,6 +40,7 @@ import butterknife.ButterKnife;
 
 import static com.example.greentaxi.mlkitbarcodescan.Util.BarcodeScanner.Constants.KEY_CAMERA_PERMISSION_GRANTED;
 import static com.example.greentaxi.mlkitbarcodescan.Util.BarcodeScanner.Constants.PERMISSION_REQUEST_CAMERA;
+
 
 public class BarcodeScannerActivity extends AppCompatActivity {
 
@@ -208,9 +209,9 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         mHandler.sendMessage(msg);
     };
 
-    public BarcodeResultListener getBarcodeResultListener() {
+    public BarcodeScanningProcessor.BarcodeResultListener getBarcodeResultListener() {
 
-        return new BarcodeResultListener() {
+        return new BarcodeScanningProcessor.BarcodeResultListener() {
             @Override
             public void onSuccess(@Nullable Bitmap originalCameraImage, @NonNull List<FirebaseVisionBarcode> barcodes, @NonNull FrameMetadata frameMetadata, @NonNull GraphicOverlay graphicOverlay) {
                 Log.d(TAG, "onSuccess: " + barcodes.size());

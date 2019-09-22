@@ -144,6 +144,10 @@ public class main_logined extends AppCompatActivity {
                 Intent setting = new Intent(this , set.class);
                 startActivity(setting);
                 break;
+            case R.id.main_qrcode:
+                Intent qrcode = new Intent(this , HomeActivity.class);
+                startActivity(qrcode);
+                break;
         }
 
     }

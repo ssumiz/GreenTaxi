@@ -5,19 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity">
 
-    <com.droidmentor.mlkitbarcodescan.BarCodeScannerUtil.common.CameraSourcePreview
+    <com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.common.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.droidmentor.mlkitbarcodescan.BarCodeScannerUtil.common.GraphicOverlay
+        <com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.common.GraphicOverlay
             android:id="@+id/barcodeOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.droidmentor.mlkitbarcodescan.BarCodeScannerUtil.common.CameraSourcePreview>
+    </com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.common.CameraSourcePreview>
 
-    <com.droidmentor.mlkitbarcodescan.BarCodeScannerUtil.OverlayView
+    <com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil.OverlayView
         android:id="@+id/overlayView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

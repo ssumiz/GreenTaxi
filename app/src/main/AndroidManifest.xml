@@ -81,7 +81,9 @@
         <activity
             android:name=".signUp"
             android:label="signUp" />
+        <activity android:name=".mlkitbarcodescan.BarcodeScanner.BarcodeScannerActivity"/>
 
+        <activity android:name=".HomeActivity"/>
 
 
         <activity android:name=".main">

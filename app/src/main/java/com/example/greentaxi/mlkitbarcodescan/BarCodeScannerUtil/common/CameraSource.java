@@ -22,7 +22,6 @@ import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
-
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;

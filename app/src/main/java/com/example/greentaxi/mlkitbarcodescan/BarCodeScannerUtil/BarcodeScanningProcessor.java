@@ -1,6 +1,7 @@
 package com.example.greentaxi.mlkitbarcodescan.BarCodeScannerUtil;
 
 import android.graphics.Bitmap;
+
 import android.util.Log;
 
 import androidx.annotation.NonNull;

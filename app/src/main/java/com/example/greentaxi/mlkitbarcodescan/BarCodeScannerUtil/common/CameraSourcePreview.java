@@ -23,7 +23,6 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -39,6 +38,7 @@ import com.google.android.gms.common.images.Size;
 import java.io.IOException;
 
 import static com.example.greentaxi.mlkitbarcodescan.Util.BarcodeScanner.Constants.PERMISSION_REQUEST_CAMERA;
+
 
 /** Preview the camera image in the screen. */
 public class CameraSourcePreview extends ViewGroup {
