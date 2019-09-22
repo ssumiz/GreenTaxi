@@ -320,7 +320,7 @@ public class route extends AppCompatActivity implements View.OnClickListener{
 
         // making the imageview a stop button
         //starting the chronometer
-
+        Toast.makeText(this, "녹음 시작", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -336,7 +336,7 @@ public class route extends AppCompatActivity implements View.OnClickListener{
         //starting the chronometer
 
         //showing the play button
-        Toast.makeText(this, "Recording saved successfully.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "녹음 완료", Toast.LENGTH_SHORT).show();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

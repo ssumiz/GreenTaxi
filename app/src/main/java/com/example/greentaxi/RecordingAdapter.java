@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -72,7 +73,7 @@ public class RecordingAdapter  extends RecyclerView.Adapter<RecordingAdapter.Vie
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageViewPlay;
+        ImageView imageViewPlay, imagedelete;
         SeekBar seekBar;
         TextView textViewName;
         private String recordingUri;
@@ -80,24 +81,41 @@ public class RecordingAdapter  extends RecyclerView.Adapter<RecordingAdapter.Vie
         private Handler mHandler = new Handler();
         ViewHolder holder;
 
+
         public ViewHolder(View itemView) {
             super(itemView);
 
             imageViewPlay = itemView.findViewById(R.id.imageViewPlay);
+            imagedelete = itemView.findViewById(R.id.imagedelete);
             seekBar = itemView.findViewById(R.id.seekBar);
             textViewName = itemView.findViewById(R.id.textViewRecordingname);
 
+            imagedelete.setOnClickListener(new View.OnClickListener() {
+                                               @Override
+                                               public void onClick(View view) {
+                                                   switch (view.getId()) {
+                                                       case R.id.imagedelete:
+                                                           int position = getAdapterPosition();
+                                                           Recording recording = recordingArrayList.get(position);
+
+                                                           recordingUri = recording.getUri();
+                                                           File file = new File( recordingUri );
+                                                           file.delete();
+                                                   }
+                                               }
+                                           });
+
             imageViewPlay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    Recording recording = recordingArrayList.get(position);
+                            @Override
+                            public void onClick(View view) {
+                                int position = getAdapterPosition();
+                                Recording recording = recordingArrayList.get(position);
 
-                    recordingUri = recording.getUri();
+                                recordingUri = recording.getUri();
 
-                    if( isPlaying ){
-                        stopPlaying();
-                        if( position == last_index ){
+                                if( isPlaying ){
+                                    stopPlaying();
+                                    if( position == last_index ){
                             recording.setPlaying(false);
                             stopPlaying();
                             notifyItemChanged(position);
@@ -210,5 +228,7 @@ public class RecordingAdapter  extends RecyclerView.Adapter<RecordingAdapter.Vie
 
         }
 
+
     }
+
 }
