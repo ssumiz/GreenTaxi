@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class main extends AppCompatActivity {
     private EditText login_pass;
     private Button login_ok;
     private Button signup;
+    private CheckBox autoLogin_checkBox;
 
     DatabaseReference userName = null;
     DatabaseReference userPassword = null;
@@ -44,9 +46,21 @@ public class main extends AppCompatActivity {
         login_pass = findViewById(R.id.inputPassword);
         login_ok = findViewById(R.id.login);
         signup = findViewById(R.id.signUp);
+        autoLogin_checkBox = findViewById(R.id.login_autoCheck);
 
         userName = FirebaseDatabase.getInstance().getReference().child("member_info").child(login_id.getText().toString());
         userPassword = FirebaseDatabase.getInstance().getReference().child("member_info").child(login_id.getText().toString());
+
+        // 자동 로그인
+        if (autoLogin.checkisEmpty(main.this) == 1) {
+            login_id.setText(autoLogin.getUserName(main.this));
+            login_pass.setText(autoLogin.getUserName(main.this));
+
+        }
+        if(!(autoLogin_checkBox.isChecked())){
+            autoLogin.clearUserName(main.this);
+        }
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +103,18 @@ public class main extends AppCompatActivity {
                                     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                                     DatabaseReference dataReference = firebaseDatabase.getReference("member_info").child(c_user.getId());
                                     dataReference.updateChildren(taskMap);
+
+                                    //자동 로그인 부분
+                                    if (autoLogin_checkBox.isChecked()) {
+                                        autoLogin.setUserName(main.this, login_id.getText().toString());
+                                        autoLogin.setUserPassWord(main.this, login_pass.getText().toString());
+                                        Toast.makeText(getApplicationContext(), "로그인 정보가 저장되었습니다..", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        autoLogin.setUserName(main.this, "");
+                                        autoLogin.setUserPassWord(main.this, "");
+                                        Toast.makeText(main.this, "로그인 정보를 저장하지않습니다..", Toast.LENGTH_SHORT).show();
+                                    }
+
 
                                     Intent intent = new Intent(getApplicationContext(), main_logined.class);
                                     startActivity(intent);

@@ -64,6 +64,18 @@
             />
 
 
+        <CheckBox
+            android:id="@+id/login_autoCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인 정보 저장하기"
+            app:scale_height="150"
+            app:scale_textsize="50"
+            app:scale_width="600"
+            app:scale_top="1025"
+            app:scale_left="250"
+            tools:ignore="MissingPrefix"/>
+
 
         <Button
             android:id="@+id/login"
@@ -74,7 +86,7 @@
             app:scale_height="150"
             app:scale_textsize="50"
             app:scale_width="350"
-            app:scale_top="1050"
+            app:scale_top="1250"
             app:scale_left="150"
             tools:ignore="MissingPrefix"
             />
@@ -88,7 +100,7 @@
             app:scale_height="150"
             app:scale_textsize="50"
             app:scale_width="350"
-            app:scale_top="1050"
+            app:scale_top="1250"
             app:scale_left="600"
             tools:ignore="MissingPrefix"
             />
@@ -96,7 +108,7 @@
 
 
 
-
+<!--
         <Button
             android:id="@+id/findId"
             android:layout_width="20dp"
@@ -124,6 +136,6 @@
             app:scale_top="1400"
             app:scale_left="575"
             tools:ignore="MissingPrefix"/>
-
+-->
     </com.ssomai.android.scalablelayout.ScalableLayout>
 </RelativeLayout>
