@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import com.google.firebase.database.Query;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -64,8 +64,7 @@ public class route_search extends AppCompatActivity {
     private EditText destini;
 
 
-    private ImageView send,star;
-
+    private ImageView send, star;
 
 
     private String loginResult;
@@ -89,8 +88,6 @@ public class route_search extends AppCompatActivity {
 
         send = findViewById(R.id.route_search_ok);
         star = findViewById(R.id.star);
-
-
 
 
         ImageView buttonInsert = findViewById(R.id.route_search_ok);
@@ -270,24 +267,25 @@ public class route_search extends AppCompatActivity {
                 databaseReference = FirebaseDatabase.getInstance().getReference("lately").child(c_user);
 
                 databaseReference.addValueEventListener(new ValueEventListener() {
-                                                            @Override
-                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                                adapter.clear();
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        adapter.clear();
 
-                                                                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                                                                    String msg = data.getValue().toString();
-                                                                    Array.add(msg);
-                                                                    adapter.add(msg);
-                                                                }
-                                                                adapter.notifyDataSetChanged();
-                                                                recentSearch_list.setSelection(adapter.getCount() - 1);
-                                                            }
+                        for (DataSnapshot data : dataSnapshot.getChildren()) {
+                            String msg = data.getValue().toString();
+                            Array.add(msg);
+                            adapter.add(msg);
+                        }
+                        adapter.notifyDataSetChanged();
+                        recentSearch_list.setSelection(adapter.getCount() - 1);
+                    }
 
-                                                            @Override
-                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                                                            }
-                                                        });
+                    }
+                });
+
                 recent();
 
                 break;
@@ -330,6 +328,7 @@ public class route_search extends AppCompatActivity {
                 startActivity(intent3);
                 break;
             case R.id.route_search_ok:
+
                 Intent intent4 = new Intent(this, route.class);
                 intent4.putExtra("start", start);
                 intent4.putExtra("end", dest);
@@ -337,8 +336,6 @@ public class route_search extends AppCompatActivity {
                 break;
             case R.id.star:
                 favorite();
-
-
 
 
         }
@@ -349,29 +346,40 @@ public class route_search extends AppCompatActivity {
         // 최근검색한것을 디비에 넣어주는 코드입니다.
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("lately");
-        lately lately_add = new lately(route_search_start.getText().toString(),
-                route_search_destinate.getText().toString());
-        Log.d("테스트",route_search_start.getText().toString());
-        currentUserInfo user = new currentUserInfo();
-        String userid = user.getId();
-        databaseReference.child(userid).setValue(lately_add);
+
+                String lately_add = route_search_start.getText().toString();
+                String lately = route_search_destinate.getText().toString();
+                Log.d("테스트", route_search_start.getText().toString());
+                currentUserInfo user = new currentUserInfo();
+                String c_user = user.getId();
+                databaseReference.child(c_user).push().setValue(lately_add);
+                databaseReference.child(c_user).push().setValue(lately);
+
 
 
     }
 
-    public void favorite(){
+    public void favorite() {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("favorite");
-        favorite favorite_add = new favorite(route_search_start.getText().toString(),
-                route_search_destinate.getText().toString());
-        Log.d("테스트",route_search_start.getText().toString());
-        currentUserInfo user = new currentUserInfo();
-        String userid = user.getId();
-        databaseReference.child(userid).setValue(favorite_add);
-    }
+        String favorite = route_search_start.getText().toString();
+        String favorites = route_search_destinate.getText().toString();
+        Log.d("테스트",route_search_start.toString());
+    currentUserInfo user = new currentUserInfo();
+    String userid = user.getId();
+                databaseReference.child(userid).push().setValue(favorite);
+        databaseReference.child(userid).push().setValue(favorites);
 
 }
+
+
+
+
+
+}
+
+
 
 
 
