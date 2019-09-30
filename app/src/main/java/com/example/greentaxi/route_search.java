@@ -1,11 +1,14 @@
 package com.example.greentaxi;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -90,6 +93,8 @@ public class route_search extends AppCompatActivity {
         star = findViewById(R.id.star);
 
 
+
+
         ImageView buttonInsert = findViewById(R.id.route_search_ok);
         ImageView buttoninsert = findViewById(R.id.star);
         buttonInsert.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +159,104 @@ public class route_search extends AppCompatActivity {
         route_search_start.setText(global.getStartName());
         route_search_destinate.setText(global.getDestName());
 
+
+        recentSearch_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,
+                                    View view, int position, long id) {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(route_search.this);
+                String selected_item = (String)adapterView.getItemAtPosition(position);
+                dialogBuilder.setTitle("위치 선택");
+                dialogBuilder.setMessage("위치를 선택해주세요.");
+                dialogBuilder.setNeutralButton("출발", new DialogInterface.OnClickListener() {
+
+                    @Override
+
+                    public void onClick(DialogInterface alertDialogObject, int which) {
+
+
+                        route_search_start.setText(selected_item);
+
+                    }
+
+                }); // 버튼
+                dialogBuilder.setPositiveButton("도착", new DialogInterface.OnClickListener() {
+
+                    @Override
+
+                    public void onClick(DialogInterface alertDialogObject, int which) {
+
+
+                        route_search_destinate.setText(selected_item);
+
+                    }
+
+                });
+
+
+
+
+
+                dialogBuilder.show();
+            }
+
+        });
+
+        favorites_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,
+                                    View view, int position, long id) {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(route_search.this);
+                String selected_item = (String)adapterView.getItemAtPosition(position);
+                dialogBuilder.setTitle("위치 선택");
+                dialogBuilder.setMessage("위치를 선택해주세요.");
+
+                dialogBuilder.setPositiveButton("출발", new DialogInterface.OnClickListener() {
+
+                    @Override
+
+                    public void onClick(DialogInterface alertDialogObject, int which) {
+
+
+                        route_search_start.setText(selected_item);
+                        alertDialogObject.dismiss();
+                    }
+
+                }); // 버튼
+
+                dialogBuilder.setNeutralButton("도착", new DialogInterface.OnClickListener() {
+
+                    @Override
+
+                    public void onClick(DialogInterface alertDialogObject, int which) {
+
+
+                        route_search_destinate.setText(selected_item);
+                        alertDialogObject.dismiss();
+                    }
+
+                });
+                dialogBuilder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+
+                    @Override
+
+                    public void onClick(DialogInterface alertDialogObject, int which) {
+
+
+                        alertDialogObject.dismiss();
+
+
+                    }
+
+                });
+
+
+                dialogBuilder.show();
+            }
+
+        });
 
     }
 
